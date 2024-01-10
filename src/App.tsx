@@ -12,17 +12,10 @@ function App() {
       tasks: tasksInColumn
     }
   })
-
-  const updateTaskPoints = (task: Task, points: number) => {
-    const updatedTasks = tasks.map((t) => {
-      if (t.id === task.id) {
-        return {
-          ...t, points
-        }
-      } 
-      else {
-        return (t)
-      }
+ 
+  const updateTask = (task: Task) => {
+    const updatedTasks = tasks.map((t)=>{
+      return t.id === task.id ? task : t
     })
     setTasks(updatedTasks)
   }
@@ -35,7 +28,7 @@ function App() {
             <h1 className="capitalize ">{column.title}</h1>
             {column.tasks.reduce((total, task)=> total + (task?.points || 0), 0)}
           </div>
-          {column.tasks.map(((task)=>(<TaskCard task={task} updateTaskPoints={updateTaskPoints}/>)))}
+          {column.tasks.map(((task)=>(<TaskCard task={task} updateTask={updateTask}/>)))}
       </div>
       ))}
     </div>

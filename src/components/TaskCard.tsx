@@ -1,18 +1,20 @@
 import {Task} from '../utils/data-tasks'
+import { useState } from 'react'
 
-const TaskCard = ({task, updateTaskPoints}:{task: Task, updateTaskPoints: (task: Task, points: number) => void }) => {
+const TaskCard = ({task, updateTask} : {task: Task, updateTask: (task: Task) => void}) => {
+
+  const [isEditingTitle, setIsEditingTitle] = useState(false)
 
   const points = task.points || 0
+
   const updatePoints = (points: number) => {
     if (points < 0 || points > 13) return
-    updateTaskPoints(task, points)
+    updateTask({...task, points})
   }
 
   return (
       <div className=" rounded-lg m-2 p-2 border px-2 bg-gray-50 w-96">
-        <div className=" text-lg font-semibold py-2 ">
-          {task.title}
-        </div>
+       <div className=" text-lg font-semibold py-2 "> {isEditingTitle ? (<input autoFocus value={task.title} className='w-full' onChange={(e)=> updateTask({...task, title: e.target.value})} onBlur={ ()=> setIsEditingTitle(false) }/>) : (<div onClick={ ()=> setIsEditingTitle(true) }> {task.title} </div>)}</div>
         <div className="flex justify-between py-2 text-slate-700">
             <div className='flex gap-2'>
               <div>{task.id}</div>
