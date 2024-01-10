@@ -12,7 +12,7 @@ export type Task = {
 export const statuses: Status[] = ['todo', 'in-progress', 'done']
 
 
-  export const tasks: Task[] =[
+export const tasks: Task[] =[
     {
       title: 'Do market research',
       id: 'BUS-1',
