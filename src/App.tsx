@@ -28,19 +28,18 @@ function App() {
   }
 
   return (
-
-
     <div className='flex divide-x'>
       {columns.map((column)=>(
         <div>
-          <h1 className="text-[30px] font-bold capitalize p-2">{column.title}</h1>
-          {column.tasks.reduce((total, task)=> total + (task?.points || 0), 0)}
+          <div className='flex justify-between items-center text-[30px] p-2 font-bold'>
+            <h1 className="capitalize ">{column.title}</h1>
+            {column.tasks.reduce((total, task)=> total + (task?.points || 0), 0)}
+          </div>
           {column.tasks.map(((task)=>(<TaskCard task={task} updateTaskPoints={updateTaskPoints}/>)))}
       </div>
       ))}
     </div>
-  )
-    
+  )  
 }
 
 export default App

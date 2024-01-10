@@ -23,7 +23,7 @@ export const tasks: Task[] =[
   
     {
       title: 'Do market research',
-      id: 'BUS-1',
+      id: 'BUS-2',
       status: 'todo',
       priority: "high",
       points: 5,
@@ -31,7 +31,7 @@ export const tasks: Task[] =[
   
     {
       title: 'Do market research',
-      id: 'BUS-1',
+      id: 'BUS-3',
       status: 'todo',
       priority: "high",
       points: 5,
@@ -39,7 +39,7 @@ export const tasks: Task[] =[
   
     {
       title: 'Do market research',
-      id: 'BUS-1',
+      id: 'BUS-4',
       status: 'todo',
       priority: "high",
       points: 5,
@@ -47,7 +47,7 @@ export const tasks: Task[] =[
 
     {
       title: 'Do house research',
-      id: 'BUS-1',
+      id: 'BUS-5',
       status: 'in-progress',
       priority: "low",
       points: 5,
@@ -55,7 +55,7 @@ export const tasks: Task[] =[
   
     {
       title: 'Do weather research',
-      id: 'BUS-1',
+      id: 'BUS-6',
       status: 'in-progress',
       priority: "low",
       points: 5,
@@ -63,7 +63,7 @@ export const tasks: Task[] =[
   
     {
       title: 'Do food research',
-      id: 'BUS-1',
+      id: 'BUS-7',
       status: 'in-progress',
       priority: "low",
       points: 5,
@@ -71,7 +71,7 @@ export const tasks: Task[] =[
 
     {
       title: 'Do market research',
-      id: 'BUS-1',
+      id: 'BUS-8',
       status: 'done',
       priority: "medium",
       points: 5,
@@ -79,7 +79,7 @@ export const tasks: Task[] =[
   
     {
       title: 'Do market research',
-      id: 'BUS-1',
+      id: 'BUS-9',
       status: 'done',
       priority: "medium",
       points: 5,
@@ -87,7 +87,7 @@ export const tasks: Task[] =[
   
     {
       title: 'Do market research',
-      id: 'BUS-1',
+      id: 'BUS-10',
       status: 'done',
       priority: "medium",
       points: 5,

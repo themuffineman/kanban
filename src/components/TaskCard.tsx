@@ -1,8 +1,12 @@
 import {Task} from '../utils/data-tasks'
 
-const TaskCard = ({task, updateTaskPoints}:{task: Task, updateTaskPoints: (task: Task, points: number) => void }) =>{
+const TaskCard = ({task, updateTaskPoints}:{task: Task, updateTaskPoints: (task: Task, points: number) => void }) => {
 
   const points = task.points || 0
+  const updatePoints = (points: number) => {
+    if (points < 0 || points > 13) return
+    updateTaskPoints(task, points)
+  }
 
   return (
       <div className=" rounded-lg m-2 p-2 border px-2 bg-gray-50 w-96">
@@ -15,9 +19,9 @@ const TaskCard = ({task, updateTaskPoints}:{task: Task, updateTaskPoints: (task:
               <div>{task.priority}</div>
             </div>
             <div className='flex gap-2 items-center'>
-              <button onClick={() => updateTaskPoints(task, points - 1)}  className='border border-slate-500 rounded-full w-10 p-2 bg-red-200'>-</button>
-              {points}
-              <button onClick={() => updateTaskPoints(task, points + 1)} className='border border-slate-500 rounded-full w-10 p-2 bg-yellow-200'>+</button>
+              <button onClick={() => updatePoints(points - 1)}  className='border border-slate-500 rounded-full w-10 p-2 bg-red-200'>-</button>
+              <div className='font-semibold'>{points}</div>
+              <button onClick={() => updatePoints(points + 1)} className='border border-slate-500 rounded-full w-10 p-2 bg-yellow-200'>+</button>
             </div>
         </div>
         
