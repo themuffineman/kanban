@@ -1,19 +1,33 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TaskCard from './components/TaskCard'
-import {Status, Task, tasks as initialTasks, statuses} from './utils/data-tasks'
+import {Status, Task, statuses} from './utils/data-tasks'
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(initialTasks)
+  const [tasks, setTasks] = useState<Task[]>([])
   
   const columns = statuses.map((status)=>{
     const tasksInColumn = tasks.filter((task)=> task.status === status)
-    return {
+    return { 
       title: status,
       tasks: tasksInColumn
     }
   })
+
+
+  useEffect( () => {
+    fetch('http://localhost:3000/tasks')
+    .then((res)=> res.json() )
+    .then((data)=> setTasks(data))}
+  ,[])
  
   const updateTask = (task: Task) => {
+    fetch(`http://localhost:3000/tasks/${task.id}`, {
+      method: "PUT",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(task)
+    })
     const updatedTasks = tasks.map((t)=>{
       return t.id === task.id ? task : t
     })
