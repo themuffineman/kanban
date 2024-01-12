@@ -13,7 +13,7 @@ const TaskCard = ({task, updateTask} : {task: Task, updateTask: (task: Task) => 
   }
 
   return (
-      <div draggable onDragStart={(e)=> e.dataTransfer.setData( "id", task.id)} className=" rounded-lg m-2 p-2 border border-gray-950 px-2 bg-gray-50 w-96">
+      <div draggable={true} onDragStart={(e)=> e.dataTransfer.setData( "id", task.id)} className=" rounded-lg m-2 p-2 border border-gray-950 px-2 bg-gray-50 w-96">
        <div className=" text-lg font-semibold py-2 "> {isEditingTitle ? (<input autoFocus value={task.title} className='w-full' onChange={(e)=> updateTask({...task, title: e.target.value})} onBlur={ ()=> setIsEditingTitle(false) }/>) : (<div onClick={ ()=> setIsEditingTitle(true) }> {task.title} </div>)}</div>
         <div className="flex justify-between py-2 text-slate-700">
             <div className='flex gap-2'>
